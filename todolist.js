@@ -38,3 +38,11 @@ else if (e.target.tagName === "SPAN"){
     listcontainer.innerHTML = localStorage.getItem("data");  
   }
   showTask();
+  const deleteAllButton = document.getElementById("delete-all");
+deleteAllButton.addEventListener("click", deleteAllTasks);
+function deleteAllTasks() {
+  while(listcontainer.firstChild) {
+      listcontainer.removeChild(listcontainer.firstChild);
+  }
+  saveData(); // Save the empty data to localStorage
+}
